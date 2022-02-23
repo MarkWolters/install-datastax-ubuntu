@@ -29,6 +29,8 @@ def setupArgs():
     parser.add_argument('--trys', type=int, default=100,
                         help="number of times to attempt to contact OpsCenter")
     parser.add_argument('--verbose', action='store_true', help='Verbose flag, right now a NO-OP.')
+    parser.add_argument('--search', type=str, default='False', help='True to create as a search node')
+    parser.add_argument('--analytics', type=str, default='False', help='True to create as a analytics node')
     return parser
 
 def main():
@@ -51,7 +53,7 @@ def main():
         print "Datacenter {d} exists".format(d=args.dcname)
     else:
         print "Datacenter {n} doesn't exist, creating...".format(n=args.dcname)
-        opsc.addDC(args.dcname, cid, args.nograph)
+        opsc.addDC(args.dcname, cid, args.nograph, args.search, args.analytics)
 
     # kludge, assuming ony one cluster
     dcid = ""
