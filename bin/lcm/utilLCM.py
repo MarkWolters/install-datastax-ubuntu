@@ -234,14 +234,14 @@ class OpsCenter:
             # Do something?
             raise
 
-    def addDC(self, dcname, cid, nograph):
+    def addDC(self, dcname, cid, nograph, search, analytics):
         try:
             dc = {
                 'name': dcname,
                 'cluster-id': cid,
                 "graph-enabled": True,
-                "solr-enabled": True,
-                "spark-enabled": True}
+                "solr-enabled": search,
+                "spark-enabled": analytics}
             if nograph:
                 print "Disabling graph workload"
                 dc['graph-enabled'] = False
