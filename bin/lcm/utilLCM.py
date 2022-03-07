@@ -240,8 +240,8 @@ class OpsCenter:
                 'name': dcname,
                 'cluster-id': cid,
                 "graph-enabled": True,
-                "solr-enabled": search,
-                "spark-enabled": analytics}
+                "solr-enabled": (search == "True"),
+                "spark-enabled": (analytics == "True")}
             if nograph:
                 print "Disabling graph workload"
                 dc['graph-enabled'] = False
