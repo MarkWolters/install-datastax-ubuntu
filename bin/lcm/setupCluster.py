@@ -136,7 +136,7 @@ def main():
 
     # Overriding all config profile logic above
     # Todo, read config json from a file or http endpoint
-    if args.config != None:
+    if args.config != None and args.config != '':
       print "WARNING: --config passed, OVERRIDING ALL OTHER config arguments"
       print "WARNING: Failed install job possible, e.g. if config json data"
       print "WARNING: paths don't match existing disks/paths"
