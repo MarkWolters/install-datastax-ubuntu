@@ -124,6 +124,9 @@ class OpsCenter:
                 print "Added default dse creds, json:"
                 pretty(creds)
                 return creds
+            else:
+                print "creds count {c}".format(c=creds['count'])
+                return creds['results'][0]
         except requests.exceptions.Timeout as e:
             print "Request to add ssh creds timed out."
             return None
@@ -142,6 +145,9 @@ class OpsCenter:
                 print "Added default config profile, json:"
                 pretty(config)
                 return config
+            else:
+                print "configs count {c}".format(c=configs['count'])
+                return configs['results'][0]
         except requests.exceptions.Timeout as e:
             print "Request to add config profile timed out."
             return None
@@ -160,6 +166,9 @@ class OpsCenter:
                 print "Added default repo, json:"
                 pretty(repconf)
                 return repconf
+            else:
+                print "repos count {c}".format(c=repos['count'])
+                return repos['results'][0]
         except requests.exceptions.Timeout as e:
             print "Request to add repo timed out."
             return None
